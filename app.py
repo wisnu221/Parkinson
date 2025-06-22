@@ -16,28 +16,28 @@ except FileNotFoundError:
 # Nilai default ini bisa disesuaikan dengan mean atau median dari dataset Anda
 # atau nilai yang masuk akal secara medis.
 features_info = {
-    "MDVP:Fo(Hz)": {"label": "1. MDVP:Fo(Hz) (Rata-rata frekuensi fundamental vokal)", "default": 154.23},
-    "MDVP:Fhi(Hz)": {"label": "2. MDVP:Fhi(Hz) (Frekuensi fundamental vokal maksimum)", "default": 197.10},
-    "MDVP:Flo(Hz)": {"label": "3. MDVP:Flo(Hz) (Frekuensi fundamental vokal minimum)", "default": 116.32},
-    "MDVP:Jitter(%)": {"label": "4. MDVP:Jitter(%) (Ukuran variasi frekuensi fundamental)", "default": 0.0062},
-    "MDVP:Jitter(Abs)": {"label": "5. MDVP:Jitter(Abs) (Ukuran absolut variasi frekuensi fundamental)", "default": 0.000044},
-    "MDVP:RAP": {"label": "6. MDVP:RAP (Relative Average Perturbation)", "default": 0.0033},
-    "MDVP:PPQ": {"label": "7. MDVP:PPQ (Five-point Period Perturbation Quotient)", "default": 0.0034},
-    "Jitter:DDP": {"label": "8. Jitter:DDP (DDP dari Jitter)", "default": 0.0099},
-    "MDVP:Shimmer": {"label": "9. MDVP:Shimmer (Ukuran variasi amplitudo)", "default": 0.0297},
-    "MDVP:Shimmer(dB)": {"label": "10. MDVP:Shimmer(dB) (Shimmer dalam dB)", "default": 0.2823},
-    "Shimmer:APQ3": {"label": "11. Shimmer:APQ3 (Three-point Amplitude Perturbation Quotient)", "default": 0.0165},
-    "Shimmer:APQ5": {"label": "12. Shimmer:APQ5 (Five-point Amplitude Perturbation Quotient)", "default": 0.0179},
-    "MDVP:APQ": {"label": "13. MDVP:APQ (Ukuran variasi amplitudo terhadap amplitudo rata-rata)", "default": 0.0241},
-    "Shimmer:DDA": {"label": "14. Shimmer:DDA (DDA dari Shimmer)", "default": 0.0470},
-    "NHR": {"label": "15. NHR (Noise-to-Harmonic Ratio)", "default": 0.0248},
-    "HNR": {"label": "16. HNR (Harmonic-to-Noise Ratio)", "default": 21.89},
-    "RPDE": {"label": "17. RPDE (Recurrence Period Density Entropy)", "default": 0.4985},
-    "DFA": {"label": "18. DFA (Detrended Fluctuation Analysis)", "default": 0.7181},
-    "spread1": {"label": "19. spread1 (Ukuran nonlinier variasi frekuensi fundamental)", "default": -5.6844},
-    "spread2": {"label": "20. spread2 (Ukuran nonlinier variasi frekuensi fundamental)", "default": 0.2265},
-    "D2": {"label": "21. D2 (Dimensi Korelasi)", "default": 2.3818},
-    "PPE": {"label": "22. PPE (Pitch Period Entropy)", "default": 0.2066},
+    "MDVP:Fo(Hz)": {"label": "1. MDVP:Fo(Hz)", "description": "Rata-rata frekuensi fundamental vokal.", "default": 154.23, "format": "%.3f"},
+    "MDVP:Fhi(Hz)": {"label": "2. MDVP:Fhi(Hz)", "description": "Frekuensi fundamental vokal maksimum.", "default": 197.10, "format": "%.3f"},
+    "MDVP:Flo(Hz)": {"label": "3. MDVP:Flo(Hz)", "description": "Frekuensi fundamental vokal minimum.", "default": 116.32, "format": "%.3f"},
+    "MDVP:Jitter(%)": {"label": "4. MDVP:Jitter(%)", "description": "Ukuran variasi persentase frekuensi fundamental.", "default": 0.0062, "format": "%.5f"},
+    "MDVP:Jitter(Abs)": {"label": "5. MDVP:Jitter(Abs)", "description": "Ukuran absolut variasi frekuensi fundamental.", "default": 0.000044, "format": "%.6f"},
+    "MDVP:RAP": {"label": "6. MDVP:RAP", "description": "Relative Average Perturbation, ukuran kegagalan nada.", "default": 0.0033, "format": "%.5f"},
+    "MDVP:PPQ": {"label": "7. MDVP:PPQ", "description": "Five-point Period Perturbation Quotient, ukuran kegagalan nada.", "default": 0.0034, "format": "%.5f"},
+    "Jitter:DDP": {"label": "8. Jitter:DDP", "description": "Average absolute difference of differences between consecutive periods.", "default": 0.0099, "format": "%.5f"},
+    "MDVP:Shimmer": {"label": "9. MDVP:Shimmer", "description": "Ukuran variasi amplitudo vokal.", "default": 0.0297, "format": "%.5f"},
+    "MDVP:Shimmer(dB)": {"label": "10. MDVP:Shimmer(dB)", "description": "Variasi amplitudo vokal dalam desibel.", "default": 0.2823, "format": "%.3f"},
+    "Shimmer:APQ3": {"label": "11. Shimmer:APQ3", "description": "Three-point Amplitude Perturbation Quotient.", "default": 0.0165, "format": "%.5f"},
+    "Shimmer:APQ5": {"label": "12. Shimmer:APQ5", "description": "Five-point Amplitude Perturbation Quotient.", "default": 0.0179, "format": "%.5f"},
+    "MDVP:APQ": {"label": "13. MDVP:APQ", "description": "Ukuran variasi amplitudo vokal terhadap amplitudo rata-rata.", "default": 0.0241, "format": "%.5f"},
+    "Shimmer:DDA": {"label": "14. Shimmer:DDA", "description": "Average absolute difference between consecutive differences of the period of the speech signal.", "default": 0.0470, "format": "%.5f"},
+    "NHR": {"label": "15. NHR", "description": "Noise-to-Harmonic Ratio, rasio antara noise dan komponen harmonik.", "default": 0.0248, "format": "%.5f"},
+    "HNR": {"label": "16. HNR", "description": "Harmonic-to-Noise Ratio, rasio antara komponen harmonik dan noise.", "default": 21.89, "format": "%.3f"},
+    "RPDE": {"label": "17. RPDE", "description": "Recurrence Period Density Entropy, ukuran kompleksitas dinamika sistem.", "default": 0.4985, "format": "%.6f"},
+    "DFA": {"label": "18. DFA", "description": "Detrended Fluctuation Analysis, ukuran korelasi dalam sinyal suara.", "default": 0.7181, "format": "%.6f"},
+    "spread1": {"label": "19. spread1", "description": "Ukuran nonlinier variasi frekuensi fundamental.", "default": -5.6844, "format": "%.6f"},
+    "spread2": {"label": "20. spread2", "description": "Ukuran nonlinier variasi frekuensi fundamental (kedua).", "default": 0.2265, "format": "%.6f"},
+    "D2": {"label": "21. D2", "description": "Correlation Dimension, ukuran kompleksitas atau fractalitas sinyal.", "default": 2.3818, "format": "%.6f"},
+    "PPE": {"label": "22. PPE", "description": "Pitch Period Entropy, ukuran kompleksitas periodisitas nada.", "default": 0.2066, "format": "%.6f"},
 }
 
 # Urutan fitur sesuai saat melatih model
@@ -58,45 +58,37 @@ st.markdown("Masukkan parameter suara pasien untuk memprediksi apakah mereka men
 # Dictionary to store user inputs
 user_inputs = {}
 
-# Create input fields in expanders for better organization
-with st.expander("Parameter Frekuensi Vokal (MDVP:Fo, Fhi, Flo, Jitter, RAP, PPQ, DDP)"):
-    col1, col2 = st.columns(2)
-    with col1:
-        user_inputs["MDVP:Fo(Hz)"] = st.number_input(features_info["MDVP:Fo(Hz)"]["label"], value=features_info["MDVP:Fo(Hz)"]["default"], format="%.3f")
-        user_inputs["MDVP:Fhi(Hz)"] = st.number_input(features_info["MDVP:Fhi(Hz)"]["label"], value=features_info["MDVP:Fhi(Hz)"]["default"], format="%.3f")
-        user_inputs["MDVP:Flo(Hz)"] = st.number_input(features_info["MDVP:Flo(Hz)"]["label"], value=features_info["MDVP:Flo(Hz)"]["default"], format="%.3f")
-        user_inputs["MDVP:Jitter(%)"] = st.number_input(features_info["MDVP:Jitter(%)"]["label"], value=features_info["MDVP:Jitter(%)"]["default"], format="%.5f")
-    with col2:
-        user_inputs["MDVP:Jitter(Abs)"] = st.number_input(features_info["MDVP:Jitter(Abs)"]["label"], value=features_info["MDVP:Jitter(Abs)"]["default"], format="%.6f")
-        user_inputs["MDVP:RAP"] = st.number_input(features_info["MDVP:RAP"]["label"], value=features_info["MDVP:RAP"]["default"], format="%.5f")
-        user_inputs["MDVP:PPQ"] = st.number_input(features_info["MDVP:PPQ"]["label"], value=features_info["MDVP:PPQ"]["default"], format="%.5f")
-        user_inputs["Jitter:DDP"] = st.number_input(features_info["Jitter:DDP"]["label"], value=features_info["Jitter:DDP"]["default"], format="%.5f")
+# Divide features into two columns for vertical layout
+col1, col2 = st.columns(2)
 
-with st.expander("Parameter Amplitudo Vokal (MDVP:Shimmer, Shimmer(dB), APQ, DDA)"):
-    col1, col2 = st.columns(2)
-    with col1:
-        user_inputs["MDVP:Shimmer"] = st.number_input(features_info["MDVP:Shimmer"]["label"], value=features_info["MDVP:Shimmer"]["default"], format="%.5f")
-        user_inputs["MDVP:Shimmer(dB)"] = st.number_input(features_info["MDVP:Shimmer(dB)"]["label"], value=features_info["MDVP:Shimmer(dB)"]["default"], format="%.3f")
-        user_inputs["Shimmer:APQ3"] = st.number_input(features_info["Shimmer:APQ3"]["label"], value=features_info["Shimmer:APQ3"]["default"], format="%.5f")
-    with col2:
-        user_inputs["Shimmer:APQ5"] = st.number_input(features_info["Shimmer:APQ5"]["label"], value=features_info["Shimmer:APQ5"]["default"], format="%.5f")
-        user_inputs["MDVP:APQ"] = st.number_input(features_info["MDVP:APQ"]["label"], value=features_info["MDVP:APQ"]["default"], format="%.5f")
-        user_inputs["Shimmer:DDA"] = st.number_input(features_info["Shimmer:DDA"]["label"], value=features_info["Shimmer:DDA"]["default"], format="%.5f")
+# Input fields for the first half of the features
+with col1:
+    st.header("Bagian 1 dari 2")
+    for i in range(len(feature_order) // 2): # Iterate through the first half of features
+        feature_name = feature_order[i]
+        info = features_info[feature_name]
+        user_inputs[feature_name] = st.number_input(
+            f"{info['label']}",
+            value=info['default'],
+            format=info['format'],
+            help=info['description'] # Use help for description
+        )
 
-with st.expander("Parameter Suara Lainnya (NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE)"):
-    col1, col2 = st.columns(2)
-    with col1:
-        user_inputs["NHR"] = st.number_input(features_info["NHR"]["label"], value=features_info["NHR"]["default"], format="%.5f")
-        user_inputs["HNR"] = st.number_input(features_info["HNR"]["label"], value=features_info["HNR"]["default"], format="%.3f")
-        user_inputs["RPDE"] = st.number_input(features_info["RPDE"]["label"], value=features_info["RPDE"]["default"], format="%.6f")
-        user_inputs["DFA"] = st.number_input(features_info["DFA"]["label"], value=features_info["DFA"]["default"], format="%.6f")
-    with col2:
-        user_inputs["spread1"] = st.number_input(features_info["spread1"]["label"], value=features_info["spread1"]["default"], format="%.6f")
-        user_inputs["spread2"] = st.number_input(features_info["spread2"]["label"], value=features_info["spread2"]["default"], format="%.6f")
-        user_inputs["D2"] = st.number_input(features_info["D2"]["label"], value=features_info["D2"]["default"], format="%.6f")
-        user_inputs["PPE"] = st.number_input(features_info["PPE"]["label"], value=features_info["PPE"]["default"], format="%.6f")
+# Input fields for the second half of the features
+with col2:
+    st.header("Bagian 2 dari 2")
+    for i in range(len(feature_order) // 2, len(feature_order)): # Iterate through the second half
+        feature_name = feature_order[i]
+        info = features_info[feature_name]
+        user_inputs[feature_name] = st.number_input(
+            f"{info['label']}",
+            value=info['default'],
+            format=info['format'],
+            help=info['description'] # Use help for description
+        )
 
 # Button for prediction
+st.markdown("---") # Garis pemisah untuk visual
 parkinsons_diagnosis = ''
 
 if st.button("Dapatkan Hasil Tes Parkinson"):
@@ -118,17 +110,16 @@ if st.button("Dapatkan Hasil Tes Parkinson"):
         st.success(parkinsons_diagnosis)
     except Exception as e:
         st.error(f"Terjadi kesalahan saat memproses input atau membuat prediksi: {e}")
-        st.info("Pastikan semua nilai yang dimasukkan sudah benar.")
+        st.info("Pastikan semua nilai yang dimasukkan sudah benar dan sesuai.")
 
-# Optional: Add information about the features
-st.sidebar.header("Tentang Fitur-Fitur Suara")
-st.sidebar.info(
+# Optional: Add information about the features in the sidebar
+st.sidebar.header("Informasi Tambahan")
+st.sidebar.markdown(
     """
-    Fitur-fitur ini adalah berbagai pengukuran suara yang dapat mengindikasikan adanya penyakit Parkinson.
-    Setiap fitur memberikan informasi tentang karakteristik vokal yang berbeda:
-    - **MDVP:Fo(Hz)**: Rata-rata frekuensi fundamental vokal.
-    - **MDVP:Jitter(%)**: Ukuran variasi dalam frekuensi fundamental (ketidakstabilan nada).
-    - **MDVP:Shimmer**: Ukuran variasi amplitudo (ketidakstabilan volume).
-    - **HNR**: Rasio Harmonik-ke-Derau, mengukur tingkat "kebersihan" suara.
+    Dataset ini terdiri dari berbagai pengukuran suara yang diambil dari individu.
+    Perubahan tertentu dalam pola suara, seperti fluktuasi frekuensi dan amplitudo,
+    seringkali menjadi indikator awal penyakit Parkinson.
     """
 )
+st.sidebar.markdown("---")
+st.sidebar.info("Aplikasi ini dibuat untuk tujuan edukasi dan demonstrasi. Jangan gunakan sebagai pengganti diagnosis medis profesional.")
